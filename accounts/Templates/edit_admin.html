@@ -1,0 +1,51 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+ <body class="goto-here" style="background-image: url({% static 'media/bg_1.jpg' %}); background-image-style: no repeat";>
+ 	<center> 
+ <h1> Edit User Details </h1>
+ 
+ <form method="POST" action="/edit_User/{{ records.user_id }}/" enctype="multipart/form-data">
+ 	{% csrf_token %} 
+    <!-- 
+     <div class="form-group">
+		<label for="input1" class="col-sm-2 control-label">Full Name</label>
+	     <div class="col-sm-3">
+	     <input type="text" name="Fname"  class="form-control" id="inputFname" value="{{ key.username}}" />
+	     </div>
+	</div>
+	<div class="form-group">
+		<label for="input2" class="col-sm-2 control-label">Email Id</label>
+	     <div class="col-sm-3">
+	     <input type="Email" name="Email"  class="form-control" id="inputEmail" value="{{ key.email}}" />
+	     </div>
+	</div>
+	<div class="form-group">
+		<label for="input3" class="col-sm-2 control-label">City</label>
+	     <div class="col-sm-3">
+	     <input type="text" name="City"  class="form-control" id="inputCity" value="{{ key.city}}" />
+	     </div>
+	</div>
+	<div class="form-group">
+		<label for="input4" class="col-sm-2 control-label">Contact No</label>
+	     <div class="col-sm-2">
+	     <input type="text" name="Phno."  class="form-control" id="inputPhno." value="{{ key.contactno}}" />
+	     </div>
+	</div>
+	<div class="form-group">
+		<label for="input1" class="col-sm-2 control-label">Address</label>
+	     <div class="col-sm-2">
+	     <input type="text" name="Fname"  class="form-control" id="inputAddress" value="{{ key.address}}" />
+	     </div>
+	</div>
+    -->
+    {{ form.as_p }}
+	<input type="submit" value="Update">
+ </form>
+ 
+ </center>
+ </body>
+ {% endblock content %}
+ </html>

@@ -1,0 +1,19 @@
+<html lang='en'>
+{% extends 'base.html' %}
+{% block content %}
+Add Categories
+
+<h2> Add Category </h2>
+        <form method="POST" class="post-form" action="/add_category/" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="form group row col sm 2">
+           {{ form.cat_id.label }} : {{ form.cat_id }}
+        </div> 
+        <div class="form group row col sm 2">
+          {{ form.cat_name.label }}: {{ form.cat_name }}
+        </div>
+         <button type="submit" class="btn-success"> Add  </button>
+          <button type="submit" class="btn-primary"> Cancel</button>  
+        </form>
+  
+{% endblock content %}

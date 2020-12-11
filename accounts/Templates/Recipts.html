@@ -1,0 +1,26 @@
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block  content %}
+<body class="goto-here">
+	
+    {% for each in Invoices %}
+    {% if user == each.Cust_Id %}
+	<div class="table">
+		<div class="row col sm 3"> Bill no. : {{ each.bill_id }}</div>
+           
+		<div> Order no. : {{ each.order_id }}</div>
+		<div > Customer  : {{ each.Customer }}</div>
+		<td class="product"> Product : {{ each.Product }} </td>
+		<div> Quantity : {{ each.prod_Qty }}</div>
+		<div> Address : {{ each.address }}</div>
+		<div> Payment Type : {{ each.payment_mode }}</div>
+		<div> Date : {{ each.bill_date }}</div>
+		<div> Accepted : {{ each.is_accepted }}</div>
+	____________________________________________________________
+	</div>
+	{% endif %}
+	{% endfor %}
+</body>
+{% endblock content %}
+</html>

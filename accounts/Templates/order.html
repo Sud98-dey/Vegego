@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
+<body>
+  <form method="post" action="/AddOrder/{{ product.prod_id }}/" enctype="multipart/form-data">
+   {% csrf_token %}
+		<h2 class="mb-2"> Add to Cart </h2>
+	 <div class="form-group"> 
+	    <div class="form-group row">
+			    <label for="input1" class="col-sm-2 control-label">Product_Name</label>
+			    <div class="col-sm-3">
+			     {{ product.prod_name }}  
+			    </div> 
+			</div>
+		<div class="form-group row">
+			    <label for="input1" class="col-sm-2 control-label">Price per Unit</label>
+			    <div class="col-sm-3">
+			     Rs.{{ product.prod_price }}  
+			    </div> 
+			</div>
+		<div class="form-group row">
+			    <label for="input1" class="col-sm-2 control-label">UserName</label>
+			    <div class="col-sm-3">
+			     {{ user }}  
+			    </div> 
+		</div>	
+        <div class="form-group row">
+			    <label for="input1" class="col-sm-2 control-label">Customer_Name</label>
+			    <div class="col-sm-3">
+			   <input type="text" name="Cust_Name" placeholder="Enter Full Name">   
+	    </div>
+        <div class="form-group row">
+			    <label for="input1" class="col-sm-4 control-label">Product_Qty</label>
+			    <div class="col-sm-2">
+			   <input type="number" name="Pqty">   
+	    </div>
+    </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Add Order" >
+	<input type="reset" class="btn btn-default " />
+    
+
+  </form>
+</body>
+{% endblock content %}
+</html>

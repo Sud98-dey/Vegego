@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="goto-here" style="background-color: rgb(220,253,255);">
+  <form method="GET" action="getInvoiceInfo/{{ Data.bill_id}}/" > 
+  <table class="table">
+   <tr> <td colspan="2"><b style="font-weight:50pt; font-size:25pt;">Invoice Details</b></td></tr>
+   <tr>
+   	<td> Bill No. </td>
+   	<td> {{ Data.bill_id}} </td>
+   </tr>
+   <tr>
+   	<td> Order No. </td>
+   	<td> {{ Data.order_id}} </td>
+   </tr>
+   <tr>
+   	<td> Customer Name </td>
+   	<td> {{ Data.Customer}} </td>
+   </tr>
+   <tr>
+   	<td> Product Name </td>
+   	<td> {{ Data.Product}} </td>
+   </tr>
+   <tr>
+   	<td> Product Quantity </td>
+   	<td> {{ Data.prod_Qty}} </td>
+   </tr>
+    <tr>
+   	<td> Delivery Address </td>
+   	<td> {{ Data.address}} </td>
+   </tr>
+   <tr>
+   	<td> Payment Mode </td>
+   	<td> {{ Data.payment_mode}} </td>
+   </tr>
+
+  </table>
+  </form>
+</body>	
+{% endblock content %}
+</html>

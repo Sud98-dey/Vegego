@@ -1,0 +1,10 @@
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+    <form method="Post" action="/addBulk/" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	<input type="File" name="AddCSV">
+    	<br>
+    	<button type="submit"> Add File </button>
+    </form>
+ {% endblock content %}

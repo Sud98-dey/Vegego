@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+ <body class="goto-here" style="background-image: url({% static 'media/bg_1.jpg' %}); background-image-style: no repeat";>
+ 	<center> 
+ <h1> Edit Product Details </h1>
+ 
+ <form method="POST" action="/update_Product/{{ key.prod_id }}/" enctype="multipart/form-data">
+ 	{% csrf_token %} 
+
+     {{ form.as_p }}
+
+	<input type="submit" value="Update">
+ </form>
+ 
+ </center>
+ </body>
+ {% endblock content %}
+ </html>

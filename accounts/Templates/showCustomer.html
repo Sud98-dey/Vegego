@@ -1,0 +1,38 @@
+<html lang="en">
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+<body class="go-to here" style="background-image: url({% static 'media/image_2.jpg' %});">  
+<br>
+<table class="table table-striped table-bordered table sm">  
+    <thead>  
+    <tr>  
+        <th>Name</th>  
+        <th>Email Id</th>  
+        <th>Contact No</th>  
+          <th> Edit </th> 
+    </tr>  
+    </thead>  
+    <tbody style="color:rgb(0,0,1); font-weight: 3pt;">  
+{% for record in Records %}  
+   
+   {% if record.role == 'gcustomer' %}
+    <tr>  
+        <td>{{ record.username }}</td>  
+        <td>{{ record.email }}</td>  
+        <td>{{ record.contactno }}</td>  
+        
+        <td>
+            {% if user.is_authenticated and record.username == user.username %}
+            <a href="/edit_User/{{ record.user_id }}" class="btn-primary">Edit</a>
+            <a href="/delete_User/{{ record.user_id }}" class="btn-danger">Delete</a>
+        </td>  
+    </tr>  
+    {% endif %}
+    {% endif %}
+{% endfor %}  
+</tbody>  
+</table>  
+</body>
+{% endblock content %}
+</html>

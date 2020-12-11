@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="goto-here">
+	<table class="table table-striped table-bordered table sm">
+		<thead>
+	 <tr>
+		<th> Ref. No.</th>	  
+        <th> Bill No.</th>  
+        <th> Order Date</th>  
+        <th> Delete</th>  
+         
+    </tr>  
+    </thead>
+		<tbody style="color:rgb(0,0,1); font-weight: 3pt;">
+			{% for each in Data %}
+			 
+			 <tr>
+			 	<td>{{ each.Assign_id }}</td>
+			 	<td>{{ each.bill_id }}</td>
+			 	<td>{{ each.order_date }}</td>
+			 	<td><a href="/delete_Order/{{ each.Assign_id }}/" class="btn-danger">delete </a></td>
+			 		
+			 </tr>
+			
+			{% endfor %}
+		</tbody>
+
+	</table>
+	&nbsp;
+ <form action="/exportCSV/" method="GET"> <button class="btn-success sm-2" > ExportCSV </button> </form> 
+</body>
+{% endblock content %}
+</html>

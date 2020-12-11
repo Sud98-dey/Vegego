@@ -1,0 +1,35 @@
+<html lang="en">
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+<body class="go-to here" style="background-image: url({% static 'media/image_2.jpg' %});">  
+<br>
+<table class="table table-striped table-bordered table sm">  
+    <thead>  
+    <tr>  
+        <th>Name</th>  
+        <th>Type</th>  
+        <th>Profile</th>  
+        <th> Price </th>
+        <th> Edit </th> 
+    </tr>  
+    </thead>  
+    <tbody style="color:rgb(0,0,1); font-weight: 3pt;">  
+{% for product in Products %}  
+    <tr>  
+        <td>{{ product.prod_name }}</td>  
+        <td>{{ product.prod_type }}</td>  
+        <td><img src="{{ product.prod_profile.url }}" height="100"></td>  
+        <td> {{ product.prod_price }}</td>
+        <td>
+            
+            <a href="/update_Product/{{ product.prod_id }}" class="btn-primary">Edit</a>
+            <a href="/delete_Product/{{ product.prod_id }}" class="btn-danger">Delete</a>
+        </td>  
+    </tr>  
+   {% endfor %}  
+    </tbody>  
+</table>  
+</body>
+{% endblock content %}
+</html>

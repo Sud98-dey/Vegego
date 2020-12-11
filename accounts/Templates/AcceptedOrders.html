@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="goto-here" style="background-image: url({% static 'media/image_2.jpg' %});">
+	<table class="table table-striped table-bordered table sm">
+		<thead>
+	 <tr>
+		<th> Ref. No.</th>	  
+        <th> Bill No.</th>  
+        <th> Vendor_Info</th>  
+        <th>Order Date</th>  
+         
+    </tr>  
+    </thead>
+		<tbody style="color:rgb(0,0,1); font-weight: 3pt;">
+			{% for each in Data %}
+			 
+			 <tr>
+			 	<td>{{ each.Assign_id }}</td>
+			 	<td><a href="/getInvoiceInfo/{{each.bill_id}}/" style="color:rgb(100,100,121);">{{ each.bill_id }}</a></td>
+			 	<td>{{ each.Vendor }}</a></td>
+			 	<td>{{ each.order_date }}</td>
+			 		
+			 </tr>
+			 
+			{% endfor %}
+		</tbody>
+	</table>
+  
+</body>
+{% endblock content %}
+</html>

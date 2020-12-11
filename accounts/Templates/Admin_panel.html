@@ -1,0 +1,151 @@
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+    
+  <!--
+  <body class="goto-here" style="background-image: url(static/images/bg_1.jpg); background-image-shrink-to-fit";>
+   -->
+  {% block content %}
+ <body class="goto-here" style="background-image: url({% static 'media/bg_1.jpg' %}); background-image-shrink-to-fit";>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Vegefoods</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          </li>
+           {% if user.is_authenticated %}
+           <li> Hello, {{ user.username }}</li> &nbsp;
+           <li> <a href="/Logout">Logout</a></li> 
+            {% endif %}
+            
+			  
+			
+			<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Operations </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a href="/add_product/" class="dropdown-item">Add Products</a>
+                <a href="/addBulk/" class="dropdown-item">Add Bulk </a>
+              	<a href="/add_category/" class="dropdown-item">Add Categories</a>
+                <a href="/payment/" class="dropdown-item">Add Payment</a>
+                <a href="/show_Customer" class="dropdown-item">Show Customers</a>
+                <a href="/show_Vendor" class="dropdown-item">Show Vendors</a>
+                <a href="/ShowProduct" class="dropdown-item"> Show Products </a>
+                <!--
+                <a class="dropdown-item" href="cart.html">Cart</a>
+                <a class="dropdown-item" href="checkout.html">Checkout</a> -->
+              </div>
+            </li>
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Orders_List </a>
+           <div class="dropdown-menu" aria-labelledby="dropdown04">
+             <a href="/OrderList/" class="dropdown-item"> Orders </a>
+             <a href="/Accepted/" class="dropdown-item"> Accepted Orders </a>
+             <a href="/Unaccepted/" class="dropdown-item"> Unaccepted Orders </a>       
+           </div>
+         </li>   
+	<li class="nav-item"><a href="/show_Admin/" class="nav-link">
+        Edit details
+        </a></li>
+			  <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+	      <!--<li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>-->
+
+	        </ul>
+	      </div>
+	    </div>
+	 
+    </nav>
+    <!-- END nav -->
+   <section id="home-section" class="hero">
+		  <div class="home-slider owl-carousel">
+        
+	      <div class="slider-item" style="background-image: url({% static 'media/bg_1.jpg' %};">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+	            <div class="col-md-12 ftco-animate text-center">
+	              <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
+	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+	              <p><a href="#" class="btn btn-primary">View Details</a></p>
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="slider-item" style="background-image: url({% static 'media/bg_2.jpg' %});">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+	            <div class="col-sm-12 ftco-animate text-center">
+	              <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
+	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+	              <p><a href="#" class="btn btn-primary">View Details</a></p>
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+    </section> 
+  <section class="ftco-section">
+			<div class="container">
+				<div class="row no-gutters ftco-services">
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-shipped"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Free Shipping</h3>
+                <span>On order over 300</span>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-diet"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Always Fresh</h3>
+                <span>Product well package</span>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-award"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Superior Quality</h3>
+                <span>Quality Products</span>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-customer-service"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Support</h3>
+                <span>24/7 Support</span>
+              </div>
+            </div>      
+          </div>
+        </div>
+			</div>
+		</section>
+	 
+</body>
+{% endblock content %}
+</html>

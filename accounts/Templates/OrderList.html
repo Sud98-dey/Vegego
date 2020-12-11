@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block section %}
+   <form method="get" action="/SearchView"> 
+  <input type="text" name="Search" id="Query" placeholder="Search Product">
+  </form>
+{% endblock section %}
+{% block content %}
+<body class="goto-here" style="background-image: url({% static 'media/image_2.jpg' %});">
+	<table class="table table-striped table-bordered table sm">
+		<thead>
+	 <tr>
+		<th> Bill No.</th>	  
+        <th>Customer</th>  
+        <th>Product</th>  
+        <th>Quantity</th>  
+        <th>Address</th>  
+        
+    </tr>  
+    </thead>
+		<tbody style="color:rgb(0,0,1); font-weight: 3pt;">
+			{% for Invoice in Invoices %}
+			 
+			 <tr>
+			 	<td>{{ Invoice.bill_id }}</td>
+			 	<td>{{ Invoice.Customer }}</td>
+			 	<td>{{ Invoice.Product }}</td>
+			 	<td>{{ Invoice.prod_Qty }}</td>
+			 	<td>{{ Invoice.address }}</td>
+			 	
+               </td>	
+			 </tr>
+			 
+			{% endfor %}
+		</tbody>
+	</table>
+    <form action="/exportOrders/" method="GET"> <button class="btn-success sm-2" > ExportCSV </button> </form>  
+</body>
+{% endblock content %}
+</html>

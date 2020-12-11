@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
+<body>
+<form method="POST" class="post-form" action="/checkout/{{ order.order_id }}/" enctype="multipart/form-data">
+          {% csrf_token %} 
+  <div class="form-group">        
+    <div class="form group row col sm 3">
+        Order no. : {{ order.order_id }}
+    </div> 
+    <div class="form group row col sm 4">
+        Customer Name : {{ order.Cust_Id }}
+    </div>
+    <div class="form group row col sm 4">
+        Product_Name : {{ order.prod_name }}
+    </div>
+    <div class="form group row col sm 2">
+         Quantity : {{ order.prod_Qty }} units
+    </div>
+    <div class="form group row col sm 2">
+         Address : {{ form.address }}
+    </div>
+    <div class="form group row col sm 2">
+         Payment : {{ form.payment_mode }}
+    </div>
+  </div>
+         <button type="submit" class="btn-success"> Add  </button>
+          <button type="submit" class="btn-primary"> Cancel</button>  
+        </form>
+{% endblock content %}
+</body>
+</html>
